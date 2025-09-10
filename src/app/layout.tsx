@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "sonner";
+import { Koh_Santepheap } from 'next/font/google';
 
 const inter = Inter({ subsets: ["latin"] });
+const kohSantepheap = Koh_Santepheap({
+  subsets: ['khmer', 'latin'],
+  weight: ['400', '700'],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +21,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en">  <Toaster
+      richColors
+      style={{
+        fontFamily: kohSantepheap.style.fontFamily,
+        fontSize: '11pt',
+      }}
+    />
+      <body className={inter.className}>
+        {children}</body>
     </html>
   );
 }
